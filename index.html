@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/modal.css" />
+    <link rel="stylesheet" href="./css/marketObject.css" />
+    <link rel="stylesheet" href="./css/SettingsModal.css" />
+    <link rel="stylesheet" href="./css/settingsNew.css" />
+    <link rel="stylesheet" href="./css/PomodoroModal.css" />
+    <script type="module" src="/market.js"></script>
+    <script type="module" src="/settingsNew.js"></script>
+    <script type="module" src="/inventory.js"></script>
+    <script type="module" src="/edit.js"></script>
+    <script type="module" src="/test.js"></script>
+    <script type="module" src="/marketShow.js"></script>
+    <script type="module" src="/main.js"></script>
+    <script type="module" src="/three.js"></script>
+    <script type="module" src="/pomodoro.js"></script>
+    <script type="module" src="/PomodoroModal.js"></script>
+    <script type="module" src="/settings.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="main">
+      <div id="canvas-container"></div>
+
+      <div id="inventory-container">
+        <div id="inventory-content"></div>
+        <div id="inventory-close-button">x</div>
+      </div>
+
+      <div id="market-container">
+        <div id="market-content"></div>
+        <div id="market-close-button">x</div>
+      </div>
+      <div class="top-side">
+        <div class="profile-container">
+          <div class="profile-image">
+            <img src="/Assets/pp.png" alt="" />
+          </div>
+          <div class="profile-level">
+            <h4>dogancanyelkarasi</h4>
+            <div class="progress-bar">
+              <div class="progress-value"></div>
+            </div>
+          </div>
+        </div>
+        <div class="coins-container">
+          <div class="coin free-coin">
+            <div class="value" id="gold"></div>
+            <div class="icon">
+              <img src="/Assets/coin.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="music-container">
+        <div class="music-content">
+          <div class="back-side"></div>
+        <div id="music-disc" class="disc">
+          <img  src="https://raw.githubusercontent.com/himalayasingh/music-player-1/master/img/_2.jpg" id="_2">
+        </div>
+        <div class="front-side">
+          <div class="music-feautures">
+
+            <i id="music-prev" class="fa-solid fa-backward"></i>
+            <i id="music-play" class="fa-solid fa-play"></i>
+            <i id="music-next" class="fa-solid fa-forward"></i>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="bottom-side">  
+        <div class="start">
+          <div id="start-button" class="start-container button">
+            <i class="fa-solid fa-play fa-2xll"></i>
+          </div>
+          <div
+            class="pomodoro-button pomodoro-s button"
+            data-pomodoro="0.3"
+            data-break="10"
+            data-repeat="3"
+          >
+            50-10
+          </div>
+          <div
+            class="pomodoro-button pomodoro-s button"
+            data-pomodoro="30"
+            data-break="5"
+            data-repeat="3"
+          >
+            30-5
+          </div>
+          <div
+            class="pomodoro-button pomodoro-s button"
+            data-pomodoro="20"
+            data-break="5"
+            data-repeat="3"
+          >
+            20-5
+          </div>
+        </div>
+
+        <div class="feature-container">
+          <div id="inventory-button" class="inventory button">
+            <i class="fa-solid fa-pen fa-2xll"></i>
+          </div>
+          <div class="edit button" id="edit-mode">
+            <i class="fa-solid fa-edit fa-2xll"></i>
+          </div>
+          <div id="market-button" class="market button">
+            <i class="fa-solid fa-store fa-2xll"></i>
+          </div>
+          <div id="settings-new" class="test-three button">
+            <i class="fa-solid fa-gear fa-2xll"></i>
+          </div>
+        </div>
+      </div>
+      <div class="dark" id="dark">
+        <div id="pomodoro-counter" class="pomodoro-counter">
+          <h1 id="pomodoro-time"></h1>
+          <button id="pomodoro-exit">Pomodoroyu İptal Et</button>
+        </div>
+      </div>
+    </div>
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p id="title">Burada mısın?</p>
+        <button id="confirmation-button" class="modal-button">Evet</button>
+      </div>
+    </div>
+    <div id="cancel-pomodoro-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p id="title">Çıkmak istediğine emin misin?</p>
+        <button id="cancel-pomodoro-button" class="modal-button">Evet</button>
+      </div>
+    </div>
+    <div id="settings-modal" class="settings-modal">
+      <div class="settings-modal-content"></div>
+    </div>
+    <div class="market-object-modal" id="market-object-modal">
+      <div class="market-object-modal-content">
+        <div class="container">
+          <div id="scene"></div>
+        </div>
+        <div class="market-object-buttons">
+          <div id="market-object-close-button">x</div>
+          <div id="market-object-buy-button">v</div>
+        </div>
+      </div>
+    </div>
+    <div class="arrow-container">
+      <div class="arrow-content">
+        <div class="key" id="arrow-l"><i class="fa-solid fa-arrow-left"></i></div>
+      <div class="arrow-y">
+        <div class="key" id="arrow-f"><i class="fa-solid fa-arrow-up"></i></div>
+        <div class="key" id="arrow-b"><i class="fa-solid fa-arrow-down"></i></div>
+      </div>
+      <div class="key" id="arrow-r"><i class="fa-solid fa-arrow-right"></i></div>
+      </div>
+      
+    </div>
+    <div class="start-pomodoro-modal" id="start-pomodoro-modal">
+      <div class="start-pomodoro-modal-content">
+        <div class="container-phone">
+          <div
+            class="pomodoro-button button-phone"
+            data-pomodoro="0.3"
+            data-break="10"
+            data-repeat="3"
+          >
+            50-10
+          </div>
+          <div          
+            class="pomodoro-button  button-phone"
+            data-pomodoro="30"
+            data-break="5"
+            data-repeat="3"
+          >
+            30-5
+          </div>
+          <div           
+            class="pomodoro-button  button-phone"
+            data-pomodoro="20"
+            data-break="5"
+            data-repeat="3"
+          >
+            20-5
+          </div>
+        </div>
+        <div class="exit-phone" id="exit-phone">İptal</div>
+      </div>
+    </div>
+    <div class="settings-new-modal" id="settings-new-modal">
+      <div class="settings-new-modal-content">
+        <div class="container">
+          <div>
+            <button class="tablink" id="defaultOpen" data-tab="London">
+              General
+            </button>
+            <button class="tablink" data-tab="Paris">Theme</button>
+            <button class="tablink" data-tab="Tokyo">Profile</button>
+            <button class="tablink" data-tab="Oslo">Oslo</button>
+          </div>
+          <div class="settings-new-content">
+            <div id="London" class="tabcontent">
+              <div class="form-container">
+                <div class="form-group">
+                  <label for="slider1">Effects Volume</label>
+                  <div class="slider-container">
+                    <input
+                      type="range"
+                      id="slider1"
+                      name="slider1"
+                      min="0"
+                      max="100"
+                      value="50"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="slider1">Effects Volume</label>
+                  <div class="slider-container">
+                    <input
+                      type="range"
+                      id="slider1"
+                      name="slider1"
+                      min="0"
+                      max="100"
+                      value="50"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="slider2">Music Volume</label>
+                  <div class="slider-container">
+                    <input
+                      type="range"
+                      id="slider2"
+                      name="slider2"
+                      min="0"
+                      max="100"
+                      value="10"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="cars">Choose a car:</label>
+                  <select id="cars">
+                      <option value="volvo">Volvo</option>
+                      <option value="saab">Saab</option>
+                      <option value="fiat">Fiat</option>
+                      <option value="audi">Audi</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="checkbox1">Akıllı Zamanlama</label>
+                  <div class="checkbox-wrapper-2">
+                    <input type="checkbox" class="checkbox" />
+                  </div>
+                </div>
+        
+                <div class="form-group">
+                  <label for="readonly-time">Saat dilimi</label>
+                  <input
+                    class="time"
+                    type="text"
+                    id="readonly-time"
+                    name="readonly-time"
+                    readonly
+                    value="12:00"
+                  />
+                </div>
+              </div>
+              </div>
+              
+            </div>
+
+            <div id="Paris" class="tabcontent">
+              <h1>Paris</h1>
+              <p>Paris is the capital of France.</p>
+            </div>
+
+            <div id="Tokyo" class="tabcontent">
+              <h1>Tokyo</h1>
+              <p>Tokyo is the capital of Japan.</p>
+            </div>
+
+            <div id="Oslo" class="tabcontent">
+              <h1>Oslo</h1>
+              <p>Oslo is the capital of Norway.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

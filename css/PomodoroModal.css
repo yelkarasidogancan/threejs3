@@ -1,0 +1,77 @@
+input,
+button,
+textarea,
+select {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  background: transparent;
+  appearance: none;
+}
+
+.start-pomodoro-modal {
+  display: none;
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.start-pomodoro-modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  height: 40%;
+  transform: translate(-50%, -50%);
+}
+
+.container-phone {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  justify-content: space-between;
+}
+
+.button-phone {
+  width: 50%;
+  padding: 20px 0;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #262d57c3;
+  border: 3px solid white;
+}
+.exit-phone {
+  position: absolute;
+  bottom: -150px;
+  left: 50%;
+  padding: 10px 0px;
+  width: 50%;
+  border-radius: 10px;
+  transform: translateX(-50%);
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid white;
+}
